@@ -11,11 +11,23 @@ import {
   Alert,
 } from 'react-native';
 
+import hyundai from '../../formulas/hyundai';
+
 function Cracker(props) {
   const [number, onChangeNumber] = React.useState(null);
+  const [cracked, onChangeCracked] = React.useState({month: null, year: null});
 
   function StartJudging() {
-    Alert.alert('Started judging' + number);
+    let c = 'MALPA813MMM000001LD';
+    let month_index = c[18];
+
+    month_index = hyundai['month']['series_on_chassis'].indexOf(month_index);
+    year_index = hyundai['year']['series_on_chassis'].indexOf(year_index);
+
+    cracked.month = hyundai['month']['inference'][month_index];
+    cracked.year = hyundai['year']['inference'][year_index];
+
+    // console.log(hyundai);
   }
   return (
     <SafeAreaView>
@@ -27,6 +39,9 @@ function Cracker(props) {
         keyboardType="default"
       />
       <Button title="Press me" onPress={StartJudging} />
+      <Text>{number}</Text>
+      <Text>{cracked.year}</Text>
+      <Text>{cracked.month}</Text>
     </SafeAreaView>
   );
 }
