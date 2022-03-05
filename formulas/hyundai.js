@@ -1,6 +1,7 @@
 export default hyundai = {
   month: {
     count_from: 'left',
+    nth_character: 17,
     series_on_chassis: [
       'A',
       'B',
@@ -32,6 +33,7 @@ export default hyundai = {
   },
   year: {
     count_from: 'left',
+    nth_character: 9,
     series_on_chassis: [
       'M',
       'N',
