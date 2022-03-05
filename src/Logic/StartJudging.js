@@ -1,15 +1,16 @@
-import {get_index_of_key_from_left, get_index_of_key_from_right } from utils;
-
-
-function StartJudging() {
+import {get_index_of_key_from_left, get_index_of_key_from_right} from './utils';
+export function StartJudging(number, cracked) {
+  if (number === null) {
+    return;
+  }
   let c = 'MALPA813MMM000001D';
   let month_index_of_chassis_number_to_look_at =
     hyundai['month']['nth_character'];
   let year_index_of_chassis_number_to_look_at =
     hyundai['year']['nth_character'];
 
-  let month_char = c[month_index_of_chassis_number_to_look_at];
-  let year_char = c[year_index_of_chassis_number_to_look_at];
+  let month_char = number[month_index_of_chassis_number_to_look_at];
+  let year_char = number[year_index_of_chassis_number_to_look_at];
 
   cracked.debugString = month_char;
 
