@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-  Image,
-  TextInput,
-  SafeAreaView,
-  Button,
-  Alert,
-} from 'react-native';
+import {StyleSheet, Text, SafeAreaView, Button, Pressable} from 'react-native';
 
 function CompanySelector({navigation}) {
   const [number, onChangeNumber] = React.useState(null);
@@ -20,11 +10,23 @@ function CompanySelector({navigation}) {
   });
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.buttonsAlignment}>
       <Button
         title="Hyundai"
         onPress={() => {
-          navigation.navigate('Cracker', {name: 'Jane'});
+          navigation.navigate('Cracker', {brand: 'hyundai'});
+        }}
+      />
+      <Button
+        title="Tata"
+        onPress={() => {
+          navigation.navigate('Cracker', {brand: 'tata'});
+        }}
+      />
+      <Button
+        title="Maruti"
+        onPress={() => {
+          navigation.navigate('Cracker', {brand: 'maruti'});
         }}
       />
     </SafeAreaView>
@@ -49,6 +51,11 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+  },
+  buttonsAlignment: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
   },
 });
 

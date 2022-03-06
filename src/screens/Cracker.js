@@ -1,17 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-  Image,
-  TextInput,
-  SafeAreaView,
-  Button,
-  Alert,
-} from 'react-native';
-
-import hyundai from '../../formulas/hyundai';
+import {StyleSheet, Text, TextInput, SafeAreaView, Button} from 'react-native';
 
 import {StartJudging} from '../Logic/StartJudging';
 
@@ -20,11 +8,17 @@ function Cracker(props) {
   const [cracked, onChangeCracked] = React.useState({
     month: null,
     year: null,
-    debugString: 'blank',
+    brand: props.route.params.brand,
   });
 
   return (
     <SafeAreaView>
+      <Text>{cracked.brand}</Text>
+      {console.log(
+        'props from scrren selectort',
+        props.route.params.brand,
+        cracked.brand,
+      )}
       <TextInput
         style={styles.textBox}
         onChangeText={e => onChangeNumber(e)}
@@ -32,7 +26,7 @@ function Cracker(props) {
         placeholder="Enter Chassis Number"
         keyboardType="default"
       />
-      <Button title="Press me" onPress={StartJudging(number, cracked)} />
+      <Button title="Find" onPress={StartJudging(number, cracked)} />
       <Text>Year: {cracked.year}</Text>
       <Text>Month: {cracked.month}</Text>
     </SafeAreaView>
