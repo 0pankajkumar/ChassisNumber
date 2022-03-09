@@ -1,5 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, SafeAreaView, Button, Pressable} from 'react-native';
+import {StyleSheet, Text, SafeAreaView, Image, Pressable} from 'react-native';
+import {SvgUri} from 'react-native-svg';
+import HyundaiLogo from '../../static/hyundai_logo.svg';
+import TataLogo from '../../static/tata_logo.svg';
+import MarutiLogo from '../../static/maruti_logo.svg';
 
 function CompanySelector({navigation}) {
   const [number, onChangeNumber] = React.useState(null);
@@ -11,24 +15,26 @@ function CompanySelector({navigation}) {
 
   return (
     <SafeAreaView style={styles.buttonsAlignment}>
-      <Button
-        title="Hyundai"
+      <Pressable
         onPress={() => {
           navigation.navigate('Cracker', {brand: 'hyundai'});
-        }}
-      />
-      <Button
-        title="Tata"
+        }}>
+        <HyundaiLogo width={200} height={200} />
+      </Pressable>
+
+      <Pressable
         onPress={() => {
           navigation.navigate('Cracker', {brand: 'tata'});
-        }}
-      />
-      <Button
-        title="Maruti"
+        }}>
+        <TataLogo width={100} height={100} />
+      </Pressable>
+
+      <Pressable
         onPress={() => {
           navigation.navigate('Cracker', {brand: 'maruti'});
-        }}
-      />
+        }}>
+        <MarutiLogo width={100} height={10} />
+      </Pressable>
     </SafeAreaView>
   );
 }

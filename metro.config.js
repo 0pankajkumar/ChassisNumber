@@ -15,3 +15,25 @@ module.exports = {
     }),
   },
 };
+
+/**
+ * Following this tutorial to add SVGs
+https://blog.logrocket.com/how-to-use-svgs-react-native-tutorial-with-examples/
+*/
+
+const {getDefaultConfig} = require('metro-config');
+
+module.exports = (async () => {
+  const {
+    resolver: {sourceExts, assetExts},
+  } = await getDefaultConfig();
+  return {
+    transformer: {
+      babelTransformerPath: require.resolve('react-native-svg-transformer'),
+    },
+    resolver: {
+      assetExts: assetExts.filter(ext => ext !== 'svg'),
+      sourceExts: [...sourceExts, 'svg'],
+    },
+  };
+})();
