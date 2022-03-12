@@ -19,21 +19,25 @@ function CompanySelector({navigation}) {
         onPress={() => {
           navigation.navigate('Cracker', {brand: 'hyundai'});
         }}>
-        <HyundaiLogo width={200} height={200} />
+        <HyundaiLogo width={90} height={90} />
       </Pressable>
 
       <Pressable
         onPress={() => {
           navigation.navigate('Cracker', {brand: 'tata'});
         }}>
-        <TataLogo width={100} height={100} />
+        <TataLogo width={40} height={40} />
       </Pressable>
+
+      <Text />
+      <Text />
+      <Text />
 
       <Pressable
         onPress={() => {
           navigation.navigate('Cracker', {brand: 'maruti'});
         }}>
-        <MarutiLogo width={100} height={10} />
+        <MarutiLogo width={'110'} height={'11'} />
       </Pressable>
     </SafeAreaView>
   );
@@ -60,7 +64,7 @@ const styles = StyleSheet.create({
   },
   buttonsAlignment: {
     flex: 1,
-    justifyContent: 'space-evenly',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
 });
